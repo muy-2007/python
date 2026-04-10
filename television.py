@@ -35,12 +35,20 @@ class Television:
             self.channel -= 1
 
     def volume_up(self):
-        pass
+        if self.volume == Television.MAX_VOLUME:
+            self.volume = Television.MAX_VOLUME
+        else:
+            self.volume += 1
 
     def volume_down(self):
-        pass
+        if self.volume == Television.MIN_VOLUME:
+            self.volume = Television.MIN_VOLUME
+        else:
+            self.volume -= 1
 
     def __str__(self):
-        pass
+        print(f'Power = [{self.power()}]')
+        print(f'Channel = [{self.channel()}]')
+        print(f'Volume = [{self.volume()}]')
 
 
