@@ -25,8 +25,11 @@ class Television:
         self.status: bool
         if self.status:
             self.status = False
+            self.muted = True
         elif not self.status:
             self.status = True
+            self.muted = False
+            self.volume = Television.MIN_VOLUME
 
     def mute(self):
         '''
@@ -36,9 +39,12 @@ class Television:
 
         self.muted: bool
         if self.muted:
-            self.muted = False
+            if self.status:
+                self.muted = False
+                self.volume = 1
         elif not self.muted:
             self.muted = True
+            self.volume = 0
 
     def channel_up(self):
         '''
