@@ -22,5 +22,4 @@ def volume_up():
 
 def volume_down():
     pass
-pass
 
