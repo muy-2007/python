@@ -1,52 +1,91 @@
 class Television:
+
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
 
     def __init__(self):
+        '''
+        Used to set the default instance variables
+        :return: None
+        '''
+
         self.status = False
         self.muted = False
         self.volume = Television.MIN_VOLUME
         self.channel = Television.MIN_CHANNEL
 
     def power(self):
+        '''
+        Used to determine the current status of the television
+        :return: None
+        '''
+
         if self.status:
             self.status = False
         elif not self.status:
             self.status = True
 
     def mute(self):
+        '''
+        Used to make the television muted
+        :return: None
+        '''
         if self.muted:
             self.muted = False
         elif not self.muted:
             self.muted = True
 
     def channel_up(self):
+        '''
+        Used to raise the channel
+        :return: None
+        '''
         if self.channel == Television.MAX_VOLUME:
             self.channel = Television.MIN_CHANNEL
         else:
             self.channel += 1
 
     def channel_down(self):
+        '''
+        Used to lower the channel
+        :return: None
+        '''
+
         if self.channel == Television.MIN_VOLUME:
             self.channel = Television.MAX_CHANNEL
         else:
             self.channel -= 1
 
     def volume_up(self):
+        '''
+        Used to raise the volume
+        :return: None
+        '''
+
         if self.volume == Television.MAX_VOLUME:
             self.volume = Television.MAX_VOLUME
         else:
             self.volume += 1
 
     def volume_down(self):
+        '''
+        Used to lower the volume
+        :return: None
+        '''
+
         if self.volume == Television.MIN_VOLUME:
             self.volume = Television.MIN_VOLUME
         else:
             self.volume -= 1
 
     def __str__(self):
+        '''
+        Used to format the values of the television object
+        :return: Three f strings, values of status, channel, and volume
+        '''
+
         print(f'Power = {self.status}')
         print(f'Channel = {self.channel}')
         print(f'Volume = {self.volume}')
