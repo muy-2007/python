@@ -85,7 +85,7 @@ class Television:
         :return: None
         '''
 
-        #self.volume: int
+        self.volume: int
 
         if self.volume == Television.MIN_VOLUME:
             self.volume = Television.MIN_VOLUME
