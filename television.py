@@ -22,6 +22,7 @@ class Television:
         :return: None
         '''
 
+        self.status: bool
         if self.status:
             self.status = False
         elif not self.status:
@@ -32,6 +33,8 @@ class Television:
         Used to make the television muted
         :return: None
         '''
+
+        self.muted: bool
         if self.muted:
             self.muted = False
         elif not self.muted:
@@ -42,6 +45,9 @@ class Television:
         Used to raise the channel
         :return: None
         '''
+
+        self.channel: int
+
         if self.channel == Television.MAX_VOLUME:
             self.channel = Television.MIN_CHANNEL
         else:
@@ -52,6 +58,8 @@ class Television:
         Used to lower the channel
         :return: None
         '''
+
+        self.channel: int
 
         if self.channel == Television.MIN_VOLUME:
             self.channel = Television.MAX_CHANNEL
@@ -64,6 +72,8 @@ class Television:
         :return: None
         '''
 
+        self.volume: int
+
         if self.volume == Television.MAX_VOLUME:
             self.volume = Television.MAX_VOLUME
         else:
@@ -75,6 +85,8 @@ class Television:
         :return: None
         '''
 
+        self.volume: int
+
         if self.volume == Television.MIN_VOLUME:
             self.volume = Television.MIN_VOLUME
         else:
@@ -85,9 +97,9 @@ class Television:
         Used to format the values of the television object
         :return: Three f strings, values of status, channel, and volume
         '''
-        status: str = str(self.status)
-        channel: str = str(self.channel)
-        volume: str = str(self.volume)
+        status = str(self.status)
+        channel = str(self.channel)
+        volume = str(self.volume)
 
         print(f'Power = {status}')
         print(f'Channel = {channel}')
