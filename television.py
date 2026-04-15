@@ -26,10 +26,12 @@ class Television:
         if self.status:
             self.status = False
             self.muted = True
+            self.channel = 1
         elif not self.status:
             self.status = True
             self.muted = False
             self.volume = Television.MIN_VOLUME
+            self.channel = Television.MIN_CHANNEL
 
     def mute(self):
         '''
@@ -54,7 +56,9 @@ class Television:
 
         self.channel: int
 
-        if self.channel == Television.MAX_CHANNEL:
+        if not self.status:
+            self.channel = 0
+        elif self.channel == Television.MAX_CHANNEL and self.status:
             self.channel = Television.MIN_CHANNEL
         else:
             self.channel += 1
@@ -67,7 +71,9 @@ class Television:
 
         self.channel: int
 
-        if self.channel == Television.MIN_CHANNEL:
+        if not self.status:
+            self.channel = 0
+        elif self.channel == Television.MIN_CHANNEL and self.status:
             self.channel = Television.MAX_CHANNEL
         else:
             self.channel -= 1
@@ -80,8 +86,10 @@ class Television:
 
         self.volume: int
 
-        if self.volume == Television.MAX_VOLUME:
-            self.volume = Television.MAX_VOLUME
+        if not self.status or self.muted:
+            self.volume = self.MIN_VOLUME
+        elif self.volume == Television.MAX_VOLUME:
+            self.volume = Television.MIN_VOLUME
         else:
             self.volume += 1
 
@@ -93,8 +101,10 @@ class Television:
 
         self.volume: int
 
-        if self.volume == Television.MIN_VOLUME:
-            self.volume = Television.MIN_VOLUME
+        if not self.status or self.muted:
+            self.volume = self.MIN_VOLUME
+        elif self.volume == Television.MIN_VOLUME and self.status:
+            self.volume = Television.MAX_VOLUME
         else:
             self.volume -= 1
 

@@ -34,7 +34,7 @@ def test_mute():
     tv.mute()
     assert tv.muted == True
 
-def channel_up():
+def test_channel_up():
     tv.status = False
     tv.channel_up()
     assert tv.channel == 0
@@ -45,16 +45,51 @@ def channel_up():
 
     tv.channel = tv.MAX_CHANNEL
     tv.channel_up()
-    assert tv.channel == 1
+    assert tv.channel == tv.MIN_CHANNEL
 
-def channel_down():
+def test_channel_down():
     tv.status = False
     tv.channel_down()
     assert tv.channel == 0
 
-def volume_up():
-    pass
+    tv.status = True
+    tv.channel = tv.MIN_CHANNEL
+    tv.channel_down()
+    assert tv.channel == tv.MAX_CHANNEL
 
-def volume_down():
-    pass
+def test_volume_up():
+    tv.status = False
+    tv.volume_up()
+    assert tv.volume == 0
+
+    tv.status = True
+    tv.volume_up()
+    assert tv.volume > 0
+
+    tv.muted = True
+    tv.volume_up()
+    assert tv.volume == tv.MIN_VOLUME
+
+    tv.volume = tv.MAX_VOLUME
+    tv.volume_up()
+    assert tv.volume == tv.MIN_VOLUME
+
+def test_volume_down():
+    tv.status = False
+    tv.volume_down()
+    assert tv.volume == 0
+
+    tv.status = True
+    tv.volume = tv.MAX_VOLUME
+    tv.volume_down()
+    assert tv.volume < tv.MAX_VOLUME
+
+    tv.muted = True
+    tv.volume_down()
+    assert tv.volume == tv.MIN_VOLUME
+
+    tv.muted = False
+    tv.volume = tv.MIN_VOLUME
+    tv.volume_down()
+    assert tv.volume == tv.MAX_VOLUME
 
