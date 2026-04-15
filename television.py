@@ -97,6 +97,6 @@ class Television:
         Used to format the values of the television object
         :return: Three f strings, values of status, channel, and volume
         '''
-        return (f'Power = {self.status}\nChannel = {self.channel}\nVolume = {self.volume}')
+        return (f'Power = {self.status}\nChannel = {self.channel}\nVolume = {self.volume}\n')
 
 
