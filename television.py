@@ -97,9 +97,9 @@ class Television:
         Used to format the values of the television object
         :return: Three f strings, values of status, channel, and volume
         '''
-        status = str(self.status)
-        channel = str(self.channel)
-        volume = str(self.volume)
+        status: str = f'{self.status}'
+        channel: str = f'{self.channel}'
+        volume: str = f'{self.volume}'
 
         print(f'Power = {status}')
         print(f'Channel = {channel}')
