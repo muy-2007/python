@@ -1,9 +1,9 @@
 class Television:
 
-    MIN_VOLUME = 0
-    MAX_VOLUME = 2
-    MIN_CHANNEL = 0
-    MAX_CHANNEL = 3
+    MIN_VOLUME: int = 0
+    MAX_VOLUME: int = 2
+    MIN_CHANNEL: int = 0
+    MAX_CHANNEL: int = 3
 
     def __init__(self):
         '''
@@ -11,10 +11,10 @@ class Television:
         :return: None
         '''
 
-        self.status = False
-        self.muted = False
-        self.volume = Television.MIN_VOLUME
-        self.channel = Television.MIN_CHANNEL
+        self.status: bool = False
+        self.muted: bool = False
+        self.volume: int = Television.MIN_VOLUME
+        self.channel: int = Television.MIN_CHANNEL
 
     def power(self):
         '''
@@ -85,9 +85,12 @@ class Television:
         Used to format the values of the television object
         :return: Three f strings, values of status, channel, and volume
         '''
+        status: str = str(self.status)
+        channel: str = str(self.channel)
+        volume: str = str(self.volume)
 
-        print(f'Power = {self.status}')
-        print(f'Channel = {self.channel}')
-        print(f'Volume = {self.volume}')
+        print(f'Power = {status}')
+        print(f'Channel = {channel}')
+        print(f'Volume = {volume}')
 
 
