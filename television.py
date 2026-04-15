@@ -48,7 +48,7 @@ class Television:
 
         self.channel: int
 
-        if self.channel == Television.MAX_VOLUME:
+        if self.channel == Television.MAX_CHANNEL:
             self.channel = Television.MIN_CHANNEL
         else:
             self.channel += 1
@@ -61,7 +61,7 @@ class Television:
 
         self.channel: int
 
-        if self.channel == Television.MIN_VOLUME:
+        if self.channel == Television.MIN_CHANNEL:
             self.channel = Television.MAX_CHANNEL
         else:
             self.channel -= 1
@@ -97,12 +97,6 @@ class Television:
         Used to format the values of the television object
         :return: Three f strings, values of status, channel, and volume
         '''
-        status: str = f'{self.status}'
-        channel: str = f'{self.channel}'
-        volume: str = f'{self.volume}'
-
-        print(f'Power = {status}')
-        print(f'Channel = {channel}')
-        print(f'Volume = {volume}')
+        return (f'Power = {self.status}\nChannel = {self.channel}\nVolume = {self.volume}')
 
 
