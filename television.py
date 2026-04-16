@@ -25,12 +25,12 @@ class Television:
         if self.__status:
             self.__status = False
             self.__muted = True
-            self.__channel = 1
+            self.__channel = Television.MIN_CHANNEL
         elif not self.__status:
             self.__status = True
             self.__muted = False
-            self.__volume = Television.MIN_VOLUME
-            self.__channel = Television.MIN_CHANNEL
+            self.__volume = Television.MIN_VOLUME + 1
+            self.__channel = Television.MIN_CHANNEL + 1
 
     def mute(self) -> None:
         """
@@ -53,11 +53,13 @@ class Television:
         """
 
         if not self.__status:
-            self.__channel = 0
-        elif self.__channel == Television.MAX_CHANNEL and self.__status:
             self.__channel = Television.MIN_CHANNEL
-        else:
-            self.__channel += 1
+
+        elif self.__status:
+            if self.__channel == Television.MAX_CHANNEL:
+                self.__channel = Television.MIN_CHANNEL
+            else:
+                self.__channel += 1
 
     def channel_down(self) -> None:
         """
@@ -66,11 +68,13 @@ class Television:
         """
 
         if not self.__status:
-            self.__channel = 0
-        elif self.__channel == Television.MIN_CHANNEL and self.__status:
-            self.__channel = Television.MAX_CHANNEL
-        else:
-            self.__channel -= 1
+            self.__channel = Television.MIN_CHANNEL
+
+        elif self.__status
+            if self.__channel == Television.MIN_CHANNEL:
+                self.__channel = Television.MAX_CHANNEL
+            else:
+                self.__channel -= 1
 
     def volume_up(self) -> None:
         """
@@ -93,7 +97,7 @@ class Television:
 
         if not self.__status or self.__muted:
             self.__volume = self.MIN_VOLUME
-        elif self.__volume == Television.MIN_VOLUME and self.__status:
+        elif self.__volume == Television.MIN_VOLUME:
             self.__volume = Television.MAX_VOLUME
         else:
             self.__volume -= 1
