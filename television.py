@@ -70,7 +70,7 @@ class Television:
         if not self.__status:
             self.__channel = Television.MIN_CHANNEL
 
-        elif self.__status
+        elif self.__status:
             if self.__channel == Television.MIN_CHANNEL:
                 self.__channel = Television.MAX_CHANNEL
             else:
